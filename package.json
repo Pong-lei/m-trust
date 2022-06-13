@@ -4,10 +4,19 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "deploy":"vercel --prod"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "dat.gui": "^0.7.9",
+    "glsl-noise": "0.0.0",
+    "glslify": "^7.1.1",
+    "gsap": "^3.10.4",
+    "raw-loader": "^4.0.2",
+    "stats.js": "^0.17.0",
+    "three": "^0.141.0",
+    "vercel": "^25.1.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -16,3 +25,4 @@
     "vue-template-compiler": "^2.6.11"
   }
 }
+
