@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "deploy":"vercel --prod"
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -25,4 +25,3 @@
     "vue-template-compiler": "^2.6.11"
   }
 }
-

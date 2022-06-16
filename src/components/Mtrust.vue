@@ -69,6 +69,7 @@ export default {
     this.addPost();
     this.onWindowResize();
     this.animatVideo();
+    this.Tick();
     window.addEventListener("resize", this.onWindowResize.bind(this), false);
   },
   methods: {
@@ -172,6 +173,7 @@ export default {
     onWindowResize() {
       this.camera.aspect = window.innerWidth / window.innerHeight;
       this.camera.updateProjectionMatrix();
+      this.material.needsUpdate = true;
       this.renderer.setSize(window.innerWidth, window.innerHeight);
       this.composer.setSize(window.innerWidth, window.innerHeight);
     },
@@ -214,15 +216,16 @@ export default {
           texture3f: { value: new THREE.TextureLoader().load(im3first) },
           texture3e: { value: new THREE.TextureLoader().load(im3end) },
           distortion: this.setting.distortion,
+          pixelRatio: { value: Math.min(window.devicePixelRatio, 2) },
         },
 
         vertexShader: vertex,
         fragmentShader: fragment,
       });
       this.material = material;
-      this.material.needsUpdate = true;
+      // this.material.visible = false;
       const plane = new THREE.Points(geometry, material);
-      plane.position.set(0, 0, 0);
+      // plane.position.set(0, 0, 0);
       this.scene.add(plane);
 
       // const light = new THREE.AmbientLight(0x404040); // soft white light
@@ -230,7 +233,7 @@ export default {
 
       // renderer
       this.renderer = new THREE.WebGLRenderer({ antialias: true });
-      this.renderer.setPixelRatio(window.devicePixelRatio);
+      this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       this.renderer.setClearColor(0x000000, 1);
       this.renderer.physicallyCorrectLights = true;
       this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -244,14 +247,13 @@ export default {
 
       // this.scene.add(new THREE.AxesHelper(5));
       // tick
-      this.Tick();
     },
 
     Tick() {
       // this.stats.begin();
       this.time.value++;
       // this.setting.bloomStrength
-      this.renderer.render(this.scene, this.camera);
+      // this.renderer.render(this.scene, this.camera);
 
       // this.controls.update();
       if (this.post) {
@@ -293,5 +295,4 @@ video {
   width: 200px;
   height: 58px;
 }
-
 </style>

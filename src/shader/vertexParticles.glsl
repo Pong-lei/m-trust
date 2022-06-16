@@ -1,4 +1,5 @@
 uniform float time;
+uniform float pixelRatio;
 varying vec2 vUv;
 varying vec3 vPosition;
 uniform sampler2D texture2;
@@ -156,6 +157,6 @@ void main(){
   vec3 finalPosition = position + insideDistortion;
   vec4 mvPosition = modelViewMatrix * vec4 (finalPosition,1.);
   // gl_PointSize =10.0 *(1./-mvPosition.z);
-  gl_PointSize = 2.;
+  gl_PointSize = 2. * pixelRatio;
   gl_Position = projectionMatrix * mvPosition;
 }
