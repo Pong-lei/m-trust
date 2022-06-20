@@ -149,7 +149,7 @@ vec3 curlNoise(vec3 p)
 }
 void main(){
   vUv = uv;
-  vec3 insideDistortion = vec3(position.x*2.7,position.y*1.2,1.)*curlNoise(vec3(
+  vec3 insideDistortion = vec3(position.x*2.2,position.y*0.6,1.)*curlNoise(vec3(
     position.x*0.02 + time*0.01,
     position.y*0.008 + time*0.01,
     (position.x+position.y)*0.02

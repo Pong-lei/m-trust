@@ -79,8 +79,10 @@ export default {
 
       const callback = () => {
         let video = this.videoSrc[this.videoIndex.value];
-        this.material.visible = true;
+
         let timeLine = gsap.timeline();
+        // video.style.opacity = "0";
+        this.material.visible = true;
         timeLine
           .to(video, {
             duration: 0.01,
@@ -120,7 +122,9 @@ export default {
               strength: 0,
               ease: "power2.Out",
               onComplete: () => {
-                this.videoSrc[this.videoIndex.value].currenTime = 8;
+                this.videoSrc[this.videoIndex.value].currenTime = -2;
+                this.videoSrc[this.videoIndex.value].play();
+                this.videoSrc[this.videoIndex.value].pause();
                 this.videoIndex.value = (this.videoIndex.value + 1) % 2;
                 this.videoSrc[this.videoIndex.value].play();
                 this.videoSrc[this.videoIndex.value].style.opacity = "1";
@@ -277,7 +281,7 @@ video {
   top: 50%;
   left: 50%;
   z-index: 10000;
-  /* opacity: 1; */
+  /* opacity: 0.2; */
   /* border: 1px solid red; */
   transform: translate(-50%, -49.9%);
   width: 40vh;
