@@ -7,9 +7,8 @@
 
 ## Project setup
 
+![result](/src/assets/result.gif)
 
-<video src="./src/assets/d701816e95b5357989f2636e2efdae2e_raw.mp4">
-</video>
 
 
 
