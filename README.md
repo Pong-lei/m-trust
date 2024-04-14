@@ -5,8 +5,14 @@
 - 项目预览地址：https://m-trust.vercel.app
 - 原网站地址：https://www.m-trust.co.jp/ (需科学上网)
 
-
 ## Project setup
+
+
+<video src="./src/assets/d701816e95b5357989f2636e2efdae2e_raw.mp4">
+</video>
+
+
+
 ```
 npm install
 ```
